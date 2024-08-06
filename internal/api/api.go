@@ -77,7 +77,7 @@ func NewHandler(q *pgstore.Queries) http.Handler {
 				r.Get("/", a.handleGetRoomMessages)
 				r.Post("/", a.handleCreateRoomMessage)
 				r.Route("/{message_id}", func(r chi.Router) {
-					r.Get("/", a.handleGetRoomMessages)
+					r.Get("/", a.handleGetRoomMessage)
 					r.Patch("/react", a.handleReactToMessage)
 					r.Delete("/react", a.handleRemoveReactFromMessage)
 					r.Patch("/answer", a.handleMarkMessageAsAnswered)
